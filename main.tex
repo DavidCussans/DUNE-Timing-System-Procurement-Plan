@@ -1,0 +1,91 @@
+\documentclass{article}
+
+% dune.cls doesn't seem to play well with LuaTex
+%\documentclass{dune}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xspace}
+\usepackage[table]{xcolor}
+\usepackage{lineno}
+
+% if we aren't using the DUNE class then we need the packages...
+%\usepackage{siunitx}
+% end of packages included instead of using DUNE
+
+% Be able to extract information from OpenOffice spread-sheet
+\usepackage{odsfile}
+
+\usepackage{biblatex}
+\addbibresource{bibliography.bib}
+
+%\input{units.tex}
+\usepackage[hidelinks]{hyperref}
+\input{defs.tex}
+\input{glossary.tex}
+\title{DUNE Timing System Procurement Plan}
+\author{J. Brooke, D. Cussans, S. Paramesvaran, S. Trilov}
+\date{June 2020}
+
+\begin{document}
+\linenumbers
+\maketitle
+
+\tableofcontents
+
+\section*{Introduction} \addcontentsline{toc}{section}{Introduction}
+\label{sec:intro}
+The document describes the plan for purchasing and testing the components for the DUNE Far Detector. Plans for prototyping, system tests and installation are described elsewhere\cite{ref:dts-system-tests,ref:dune-installation-schedule} 
+
+\section{Components}
+
+The main components of the DUNE timing system are listed in table \ref{tab:dts-components}. In many cases each of these components is made of sub-components (for example, a \dword{utca} crate consists not only of the chassis, but also the power supply modules, the fan module, the JTAG module and the MCH. All of which may be purchased from different vendors) . This finer level of division is not described here.
+
+Only components for the two \dword{sp} detector caverns are listed. The \dword{dp} detector receives two fibres (one from the top of each shaft) each carrying IEEE-1588 timing data, but all the timing hardware is considered to be part of the Dual Phase detector.
+
+\begin{table}[h!]
+\rowcolors{2}{green!60!yellow!20}{green!20!yellow!60}
+\begin{tabular}{p{2.2cm}  |p{1.5cm}| p{1.3cm}| p{1.3cm} |p{1.3cm} |p{1.5cm} |p{1.3cm} }
+\includespread[file=dune_timing_system_procurement_01.ods,sheet=Sheet1, columns=head,range=a:g7]
+\end{tabular}
+\caption{Components Required for DUNE Far Detector Timing System.}
+\label{tab:dts-components}
+\end{table}
+
+%\includespread[file=dune_timing_system_procurement_01.ods,sheet=Sheet1, columns=head,range=a:b7]
+
+\section{Purchasing}
+
+For COTS items there is already a list of suppliers compiled during the prototyping phase. For the custom PCBs the supplier of the prototypes will be used to manufacture the production boards, unless there is a significant cost difference, in which case a pre-production batch will be manufactured before the main production.
+
+The time taken from placing orders to receiving the items is estimated from experience gained from the prototyping phase.
+
+Purchasing of production components will be done through the UK SBS system.
+
+Table \ref{tab:dts-component-lead-time} lists the components and the estimated time that will be needed to procure them. For components with multiple sub-components (for example the \dword{utca} crates) the time is taken to be the item with the longest lead time.
+
+\begin{table}[ht]
+\rowcolors{2}{green!60!yellow!20}{green!20!yellow!60}
+\begin{tabular}{p{4cm}  |p{2.5cm}| p{2.5cm}| p{2.5cm} }
+\includespread[file=dune_timing_system_procurement_01.ods,sheet=Sheet2, columns=head,range=a:d9]
+\end{tabular}
+\caption{Purchasing Lead Time}
+\label{tab:dts-component-lead-time}
+\end{table}
+
+\section{Testing}
+
+Table \ref{tab:dts-component-test-time} lists the estimated staff effort needed to test all components before system assembly. The time to test the functionality of each component is estimated from experience with similar items. Testing the COTS items will be limited to checks of basic functionality to check for damage in shipping, supply of correct item etc. Tests of the custom items will check all relevant functionality and will rely on test procedures developed during the prototyping phase. The time taken to assemble the components into a system and test the system is not included.
+
+Testing will be done in the University of Bristol Particle Physics Labs, using staff effort allocated to the DUNE project.
+
+\begin{table}[h!]
+\rowcolors{2}{green!60!yellow!20}{green!20!yellow!60}
+\begin{tabular}{p{6cm}  |p{3.5cm} }
+\includespread[file=dune_timing_system_procurement_01.ods,sheet=Sheet3, columns=head,range=a:b7]
+\end{tabular}
+\caption{Time Taken to Test Components}
+\label{tab:dts-component-test-time}
+\end{table}
+
+\end{document}
